@@ -1,0 +1,39 @@
+<!--
+    viewBox define o espaço de desenho: 600 unidades de largura
+    e 260 de altura. O ponto (0, 0) fica no canto superior esquerdo.
+
+    preserveAspectRatio="none" permite esticar as ondas na largura
+    ou na altura para encaixá-las na faixa.
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 600 260"
+     preserveAspectRatio="none">
+
+    <!--
+        Primeira camada, em verde mais escuro.
+        M move o ponto de partida para (0, 260), no canto inferior esquerdo.
+        C desenha uma curva usando dois pontos de controle e um ponto final.
+        S continua a curva suavemente a partir da anterior.
+        H segue na horizontal até x = 600.
+        V desce na vertical até y = 260.
+        Z fecha a forma, voltando ao ponto inicial.
+    -->
+    <path fill="#00857f"
+          d="M0 260 C110 195 215 215 295 160 S345 40 380 0 H600 V260 Z"/>
+
+    <!-- Esta camada começa mais à direita e é pintada sobre a primeira. -->
+    <path fill="#78cbbb"
+          d="M55 260 C160 213 252 226 345 165 S480 29 600 12 V260 Z"/>
+
+    <!-- A camada mais clara ocupa a parte de baixo da onda. -->
+    <path fill="#b9e2d5"
+          d="M120 260 C225 220 307 236 395 190 S510 135 600 148 V260 Z"/>
+
+    <!--
+        A linha fina é desenhada por último, por cima das camadas.
+        fill="none" deixa a curva sem preenchimento.
+        stroke define a cor do traço e stroke-opacity deixa o branco translúcido.
+    -->
+    <path fill="none" stroke="#ffffff" stroke-opacity=".35"
+          d="M30 260 C145 200 240 219 330 160 S480 23 600 4"/>
+</svg>

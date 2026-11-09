@@ -1,0 +1,366 @@
+/* 1. Cores e configurações gerais */
+:root {
+    /* As variáveis guardam as cores usadas em vários lugares da página. */
+    --petroleo: #103d4b;
+    --verde: #006d67;
+    --menta: #b9e2d5;
+    --fundo: #f2f8f6;
+    --branco: #ffffff;
+    --texto: #13383c;
+    --texto-secundario: #486366;
+    --borda: #cfe2de;
+}
+
+/* Faz a largura de um elemento incluir seu preenchimento e sua borda. */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--fundo);
+    color: var(--texto);
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+}
+
+h1, h2, p {
+    margin: 0;
+}
+
+/* 2. Cabeçalho */
+.cabecalho {
+    /* Flexbox coloca a marca de um lado e o selo do outro. */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 18px 5%;
+    background-color: var(--branco);
+    border-bottom: 1px solid var(--borda);
+}
+/* Coloca a logo e o texto lado a lado e alinha os dois pelo centro. */
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* Mantém a logo quadrada sem distorcer o desenho. */
+.marca-logo {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+.marca-nome {
+    font-size: 1.35rem;
+    font-weight: 750;
+}
+
+.marca-descricao {
+    color: var(--verde);
+    font-size: 0.9rem;
+}
+
+/* O selo e os indicadores de vagas compartilham o formato arredondado. */
+.selo,
+.status {
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.selo,
+.status-disponivel {
+    background-color: var(--menta);
+    color: var(--petroleo);
+}
+
+.status-lotada {
+    background-color: #f9dfca;
+    color: #693e25;
+}
+
+/* 3. Painel e faixa de abertura */
+.painel {
+    /* Limita a largura em telas grandes e centraliza o conteúdo. */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 20px 40px;
+}
+
+.faixa {
+    padding: 32px;
+    border-radius: 20px;
+    color: var(--branco);
+    background-color: var(--petroleo);
+
+    /* As bordas dos degradês formam curvas no canto inferior direito. */
+    /* Coloca as ondas no lado direito, ocupando toda a altura da faixa. */
+    background-image: url("ondas-faixa.svg");
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 46% 100%;
+}
+
+.faixa h1 {
+    /* O título cresce com a tela, dentro de um mínimo e um máximo. */
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    line-height: 1.15;
+}
+
+.faixa p {
+    max-width: 58ch;
+    margin-top: 10px;
+}
+/* Coloca o ícone e o texto lado a lado e mantém a cor após o clique. */
+.link-whatsapp,
+.link-whatsapp:visited {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background-color: var(--menta);
+    color: var(--petroleo);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* Clareia o fundo quando o mouse passa sobre o link. */
+.link-whatsapp:hover {
+    background-color: var(--branco);
+}
+
+/* Mostra um contorno quando a pessoa chega ao link usando Tab. */
+.link-whatsapp:focus-visible {
+    outline: 2px solid var(--branco);
+    outline-offset: 4px;
+}
+
+/* 4. Colunas do painel e grade dos botões */
+.painel-colunas {
+    /* 1fr 1fr divide o espaço disponível em duas partes iguais. */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.acoes h2 {
+    margin-bottom: 12px;
+}
+
+.acoes-grade {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.acao {
+    /* Empilha o nome da ação e sua descrição dentro de cada botão. */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 110px;
+    padding: 16px;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    background-color: var(--branco);
+    color: var(--texto);
+    font: inherit;
+    text-align: center;
+}
+
+.acao span:not(.acao-icone) {
+    color: var(--texto-secundario);
+    font-size: 0.875rem;
+}
+
+/* :hover aplica o destaque enquanto o mouse estiver sobre o botão. */
+.acao:hover {
+    background-color: var(--verde);
+    border-color: var(--verde);
+    color: var(--branco);
+}
+
+/* Clareia a descrição para manter a leitura sobre o fundo verde. */
+.acao:hover span:not(.acao-icone) {
+    
+    color: #e0f5ee;
+}
+/* Define o tamanho do ícone e dá espaço entre ele e o título. */
+/* Usa o mesmo --texto dos títulos dos botões. */
+.acao .acao-icone {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    object-fit: contain;
+    margin-bottom: 4px;
+    filter: url("#cor-icone");
+}
+
+/* Deixa o ícone branco quando o mouse está sobre o botão. */
+.acao:hover .acao-icone {
+    filter: brightness(0) invert(1);
+}
+
+/* O HTML mantém os botões desativados. Aqui preservamos sua legibilidade. */
+.acao:disabled {
+    opacity: 1;
+    cursor: default;
+}
+
+/* 5. Agenda de hoje */
+.agenda {
+    padding: 20px;
+    background-color: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+}
+
+.agenda-descricao {
+    color: var(--texto-secundario);
+    font-size: 0.875rem;
+}
+
+.agenda-lista {
+    /* Remove as bolinhas e o recuo padrão da lista. */
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+}
+
+.aula {
+    /* Horário e situação ocupam só o necessário. A modalidade usa o restante. */
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+    border-top: 1px solid var(--borda);
+}
+
+.aula time {
+    font-weight: 750;
+    font-variant-numeric: tabular-nums;
+}
+
+.status {
+    white-space: nowrap;
+}
+
+/* 6. Ajustes para telas menores */
+@media (max-width: 760px) {
+    /* Uma coluna faz a agenda passar para baixo dos botões. */
+    .painel-colunas {
+        grid-template-columns: 1fr;
+    }
+
+    .faixa {
+        padding: 24px;
+        background-image: none;
+    }
+}
+
+@media (max-width: 420px) {
+    /* Em celulares estreitos, cada botão ganha uma linha inteira. */
+    .acoes-grade {
+        grid-template-columns: 1fr;
+    }
+
+    .aula {
+        gap: 8px;
+        font-size: 0.875rem;
+    }
+}
+/* Mantém o botão e o selo lado a lado. */
+.cabecalho-controles {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.botao-tema {
+    padding: 6px 12px;
+    border: 1px solid var(--borda);
+    border-radius: 999px;
+    background-color: transparent;
+    color: var(--texto);
+    font: inherit;
+    cursor: pointer;
+}
+
+.botao-tema[aria-pressed="true"] {
+    background-color: var(--menta);
+    color: var(--petroleo);
+}
+
+/* Estas cores entram em uso quando o HTML recebe data-tema="escuro". */
+:root[data-tema="escuro"] {
+    color-scheme: dark;
+    --fundo: #0f2024;
+    --superficie-escura: #192f34;
+    --texto: #e6f4f1;
+    --texto-secundario: #b8ceca;
+    --borda: #39555a;
+}
+
+/* Escurece os cartões e a janela da agenda. */
+[data-tema="escuro"] .cabecalho,
+[data-tema="escuro"] .agenda,
+[data-tema="escuro"] .acao:not(:hover) {
+    background-color: var(--superficie-escura);
+    color: var(--texto);
+}
+/* Desce o quadro da agenda quando ele está ao lado dos botões. */
+@media (min-width: 761px) {
+    .painel-colunas > .agenda {
+        margin-top: 38px;
+    }
+}
+/* 7. Perfis de demonstração */
+.cabecalho-controles {
+    flex-wrap: wrap;
+}
+
+.trocar-perfil,
+.trocar-perfil:visited {
+    color: var(--texto);
+    font-size: .9rem;
+}
+
+[data-perfil][hidden] {
+    display: none;
+}
+
+:root[data-visao="aluno"] .acoes-grade,
+:root[data-visao="professor"] .acoes-grade {
+    grid-template-columns: 1fr;
+}
+
+/* No modo claro, exibe só a logo original. */
+.marca-logo-escura {
+    display: none;
+}
+
+/* No modo escuro, troca a imagem no mesmo lugar. */
+[data-tema="escuro"] .marca-logo-clara {
+    display: none;
+}
+
+[data-tema="escuro"] .marca-logo-escura {
+    display: block;
+}
+
+/* Ajusta a cor de "Pilates e treino personalizado" no modo escuro. */
+[data-tema="escuro"] .marca-descricao {
+    color: #a8e0d4;
+}

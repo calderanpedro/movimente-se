@@ -1,0 +1,275 @@
+/* 1. Fundo, marca e saudação */
+.pagina-login {
+    background: #03242a;
+}
+
+.acesso {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: 56.6% minmax(0, 1fr);
+    min-height: 690px;
+    min-height: max(690px, 100svh);
+    overflow: hidden;
+}
+
+.acesso-marca {
+    grid-column: 1;
+    align-self: start;
+    justify-self: end;
+    width: min(55%, 420px);
+    margin: 10px 6% 0 0;
+    text-align: center;
+    color: #39c9bc;
+}
+
+.acesso-marca img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.acesso-estudio,
+.acesso-nome,
+.acesso-modalidades {
+    text-transform: uppercase;
+}
+
+.acesso-estudio {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    letter-spacing: .32em;
+}
+
+/* Desenha os traços finos dos dois lados da palavra Studio. */
+.acesso-estudio::before,
+.acesso-estudio::after {
+    content: "";
+    flex: 1;
+    border-top: 1px solid currentColor;
+}
+
+.acesso-nome {
+    font-size: clamp(19px, 3vw, 44px);
+    line-height: 1.15;
+    letter-spacing: .07em;
+}
+
+.acesso-modalidades {
+    font-size: clamp(10px, 1.25vw, 17px);
+    letter-spacing: .16em;
+}
+
+.acesso-saudacao {
+    position: absolute;
+    z-index: 2;
+    bottom: 3%;
+    left: 1.5%;
+    color: var(--menta);
+    font-size: 2rem;
+    font-family: 'COCOGOOSE', sans-serif;
+    font-weight: 400;
+    font-variation-settings: normal;
+    line-height: 1.5;
+}
+
+/* 2. Camadas: cartão ao fundo, ondas por cima e formulário na frente */
+.acesso-ondas {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.acesso-cartao {
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+    align-items: center;
+    min-width: 0;
+    margin: 10px 6px 6.5vh 0;
+    padding: clamp(32px, 7vw, 104px);
+    padding-block: 42px 58px;
+    border-radius: clamp(28px, 5vw, 68px);
+    background: #fafcfc;
+}
+
+.acesso-cartao > section,
+.acesso-cartao > noscript {
+    position: relative;
+    z-index: 2;
+}
+
+/* 3. Formulários e botões */
+.acesso-etapa {
+    color: var(--verde);
+    font-weight: 700;
+}
+
+.acesso-cartao h2 {
+    margin-top: 14px;
+    font-size: clamp(1.65rem, 3.1vw, 2.8rem);
+    line-height: 1.1;
+}
+
+.acesso-formulario,
+.acesso-perfis {
+    display: grid;
+    gap: 12px;
+}
+
+.acesso-formulario {
+    margin-top: 22px;
+}
+
+.acesso-perfis {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.acesso-perfis label,
+.acesso-campo input {
+    min-height: 48px;
+    padding: 10px 14px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    background: var(--branco);
+    color: var(--texto);
+    font: inherit;
+}
+
+.acesso-perfis label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Destaca o cartão do perfil que está selecionado. */
+.acesso-perfis label:has(input:checked) {
+    border-color: var(--verde);
+    background: #d7f1e9;
+}
+
+.acesso-perfis input {
+    margin: 0;
+    accent-color: var(--verde);
+}
+
+.acesso-botao,
+.acesso-voltar {
+    min-height: 44px;
+    border: 0;
+    border-radius: 10px;
+    font: inherit;
+    cursor: pointer;
+}
+
+.acesso-botao {
+    margin-top: 6px;
+    background: var(--petroleo);
+    color: var(--branco);
+    font-weight: 700;
+}
+
+.acesso-botao:hover {
+    background: var(--verde);
+}
+
+.acesso-voltar {
+    justify-self: center;
+    background: transparent;
+    color: var(--petroleo);
+    text-decoration: underline;
+}
+
+.acesso-campo {
+    display: grid;
+    gap: 4px;
+    font-weight: 650;
+}
+
+.acesso-selo {
+    display: inline-block;
+    margin-top: 12px;
+}
+
+.acesso-ajuda,
+.acesso-erro {
+    font-size: .85rem;
+}
+
+.acesso-ajuda {
+    color: var(--texto-secundario);
+}
+
+.acesso-erro {
+    color: #8f2727;
+}
+
+.pagina-login :focus-visible {
+    outline: 2px solid var(--verde);
+    outline-offset: 3px;
+}
+
+/* 4. No celular, a marca e o cartão ficam um abaixo do outro. */
+@media (max-width: 760px) {
+    .acesso {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+        padding: 20px 16px;
+    }
+
+    .acesso-marca {
+        width: min(100%, 300px);
+        justify-self: center;
+        margin: 0;
+    }
+
+    .acesso-marca img {
+        width: min(100%, 220px);
+    }
+
+    .acesso-saudacao {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        font-size: 1.55rem;
+        text-align: center;
+    }
+
+    .acesso-saudacao br {
+        display: none;
+    }
+
+    .acesso-cartao {
+        grid-column: 1;
+        grid-row: auto;
+        position: relative;
+        z-index: 2;
+        width: min(100%, 500px);
+        justify-self: center;
+        margin: 0;
+        padding: 24px;
+    }
+}
+.contato-instagram {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contato-instagram img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: url("#cor-icone-instagram");
+}

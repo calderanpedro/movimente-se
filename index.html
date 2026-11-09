@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!-- Indica ao navegador que o documento usa HTML moderno. -->
+<html lang="pt-BR">
+<head>
+    <!-- O head reúne configurações da página. O conteúdo visível fica no body. -->
+    <meta charset="UTF-8">
+
+    <!-- Ajusta a largura da página à tela do dispositivo, inclusive no celular. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Este título aparece na aba do navegador. -->
+    <title>Painel do estúdio | Studio Movimente-se</title>
+
+    <!-- Carrega o CSS. Este caminho procura o style.css na mesma pasta do index.html. -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Pinta os traços do PNG com a cor do título e preserva a transparência. -->
+<svg width="0" height="0" style="position: absolute" aria-hidden="true">
+    <defs>
+        <filter id="cor-icone" color-interpolation-filters="sRGB">
+            <feFlood style="flood-color: var(--texto)" result="cor" />
+            <feComposite in="cor" in2="SourceAlpha" operator="in" />
+        </filter>
+    </defs>
+</svg>
+
+    <!-- O header é o cabeçalho da página. Aqui ficam a marca e o selo do protótipo. -->
+    <header class="cabecalho">
+        <!-- A div agrupa o nome e a descrição para podermos posicioná-los juntos no CSS. -->
+        <div class="marca">
+    <!-- O nome do estúdio já aparece ao lado, então o símbolo pode ter alt vazio. -->
+    <img
+        class="marca-logo marca-logo-clara"
+        src="logo-movimente-se.png"
+        alt=""
+        width="64"
+        height="64"
+    >
+    <img
+        class="marca-logo marca-logo-escura"
+        src="logo-modo-escuro.png"
+        alt=""
+        width="64"
+        height="64"
+    >
+
+    <!-- Esta div mantém o nome e a descrição juntos, um abaixo do outro. -->
+    <div>
+        <p class="marca-nome">Studio Movimente-se</p>
+        <p class="marca-descricao">Pilates e treino personalizado</p>
+    </div>
+</div>
+
+        <div class="cabecalho-controles">
+            <!-- aria-pressed indica se o modo escuro está ligado. -->
+            <button class="botao-tema" id="botao-tema" type="button" aria-pressed="false">
+                Modo escuro
+            </button>
+
+            <span class="selo" id="perfil-atual">Protótipo</span>
+            <a class="trocar-perfil" href="login.html">Trocar perfil</a>
+        </div>
+    </header>
+
+    <!-- O main contém o conteúdo principal da página. -->
+    <main class="painel">
+        <!-- A section agrupa um assunto. Esta é a faixa de abertura do painel. -->
+        <section class="faixa">
+            <h1>Painel do estúdio</h1>
+            <p>Acompanhe as aulas e organize a rotina do estúdio.</p>
+
+            <!-- O ícone e o texto fazem parte do mesmo link. -->
+            <a
+                data-perfil="aluno"
+                hidden
+                class="link-whatsapp"
+                href="https://wa.me/5515996366303?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20como%20fazer%20minha%20matr%C3%ADcula%20no%20est%C3%BAdio."
+                target="_blank"
+                rel="noopener"
+            >
+                <img src="whatsapp.png" alt="" width="22" height="22">
+                Matrículas pelo WhatsApp
+            </a>
+        </section>
+
+        <!-- O CSS vai usar esta classe para colocar as ações e a agenda lado a lado. -->
+        <div class="painel-colunas">
+            <section class="acoes">
+                <h2>Ações do painel</h2>
+
+                <!-- Esta div reúne os quatro botões para formarmos a grade no CSS. -->
+                <div class="acoes-grade">
+                    <button class="acao" id="abrir-agenda" type="button" aria-haspopup="dialog">
+                        <!-- Ver agenda -->
+                        <img class="acao-icone" src="agenda.png" alt="" width="40" height="40">
+                        <strong>Ver agenda</strong>
+                        <span>Horários, vagas e presenças</span>
+                    </button>
+
+                    <button class="acao" type="button" data-perfil="socio" hidden disabled>
+                        <!-- Gerenciar alunos -->
+                        <img class="acao-icone" src="alunos.png" alt="" width="40" height="40">
+                        <strong>Gerenciar alunos</strong>
+                        <span>Cadastros e planos</span>
+                    </button>
+
+                    <button class="acao" type="button" data-perfil="socio" hidden disabled>
+                        <!-- Agendar reposição -->
+                        <img class="acao-icone" src="reposicao.png" alt="" width="40" height="40">
+                        <strong>Agendar reposição</strong>
+                        <span>Faltas e horários disponíveis</span>
+                    </button>
+
+                    <button class="acao" type="button" data-perfil="socio" hidden disabled>
+                        <!-- Ver mensalidades -->
+                        <img class="acao-icone" src="mensalidades.png" alt="" width="40" height="40">
+                        <strong>Ver mensalidades</strong>
+                        <span>Pagamentos e pendências</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="agenda">
+                <h2>Agenda de hoje</h2>
+                <p class="agenda-descricao">Dados fictícios</p>
+
+                <!-- ul cria uma lista sem numeração. Cada li representa uma aula. -->
+                <ul class="agenda-lista">
+                    <li class="aula">
+                        <!-- datetime guarda o horário em formato padronizado. 07h00 é o texto exibido. -->
+                        <time datetime="07:00">07h00</time>
+                        <span>Pilates em grupo</span>
+
+                        <!-- status define o estilo comum do selo. A segunda classe indica a situação da aula. -->
+                        <span class="status status-disponivel">2 vagas</span>
+                    </li>
+
+                    <li class="aula">
+                        <time datetime="08:00">08h00</time>
+                        <span>Musculação</span>
+                        <span class="status status-disponivel">3 vagas</span>
+                    </li>
+
+                    <li class="aula">
+                        <time datetime="16:00">16h00</time>
+                        <span>Pilates em grupo</span>
+                        <span class="status status-lotada">Lotada</span>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    <!-- O dialog fica oculto até o JavaScript chamar showModal(). -->
+<dialog class="agenda" id="agenda-completa" aria-labelledby="titulo-agenda">
+    <h2 id="titulo-agenda">Agenda completa de hoje</h2>
+    <p class="agenda-descricao">Dados fictícios</p>
+
+    <ul class="agenda-lista">
+        <li class="aula">
+            <time datetime="07:00">07h00</time>
+            <span>Pilates em grupo</span>
+            <span class="status status-disponivel">2 vagas</span>
+        </li>
+        <li class="aula">
+            <time datetime="08:00">08h00</time>
+            <span>Musculação</span>
+            <span class="status status-disponivel">3 vagas</span>
+        </li>
+        <li class="aula">
+            <time datetime="09:00">09h00</time>
+            <span>Pilates em grupo</span>
+            <span class="status status-disponivel">1 vaga</span>
+        </li>
+        <li class="aula">
+            <time datetime="16:00">16h00</time>
+            <span>Pilates em grupo</span>
+            <span class="status status-lotada">Lotada</span>
+        </li>
+    </ul>
+
+    <!-- method="dialog" faz o botão fechar a janela sem JavaScript extra. -->
+    <form method="dialog">
+        <button type="submit">Fechar agenda</button>
+    </form>
+</dialog>
+
+<script src="painel.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso | Studio Movimente-se</title>
+    <link href="https://fonts.cdnfonts.com/css/cocogoose" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+    <script src="login.js" defer></script>
+</head>
+<body class="pagina-login">
+    <!-- Pinta o ícone com a mesma cor menta do texto. -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+        <defs>
+            <filter id="cor-icone-instagram" color-interpolation-filters="sRGB">
+                <feFlood style="flood-color: var(--menta)" result="menta" />
+                <feComposite in="menta" in2="SourceAlpha" operator="in" />
+            </filter>
+        </defs>
+    </svg>
+    <main class="acesso">
+        <div class="acesso-marca">
+            <img
+                src="logo-movimente-se-clara.png"
+                alt="Studio Movimente-se — Pilates e Musculação"
+                width="1181"
+                height="1181"
+            >
+        </div>
+
+       <div class="acesso-saudacao">
+            <p>Contato: (15) 99636-6303</p>
+
+            <p class="contato-instagram">
+                <img src="instagram.png" alt="Instagram" width="28" height="28">
+                <span>studio.movimentesepilates</span>
+            </p>
+        </div>
+
+        <!-- O SVG passa na frente do canto inferior do cartão. -->
+        <img class="acesso-ondas" src="ondas-login.svg" alt="">
+
+        <div class="acesso-cartao">
+            <section id="etapa-perfil" aria-labelledby="titulo-perfil">
+                <p class="acesso-etapa">Etapa 1 de 2</p>
+                <h2 id="titulo-perfil">Como você quer entrar?</h2>
+
+                <form id="form-perfil" class="acesso-formulario">
+                    <fieldset class="acesso-perfis" aria-label="Perfil de acesso">
+                        <label>
+                            <input type="radio" name="perfil" value="aluno" required>
+                            Aluno
+                        </label>
+                        <label>
+                            <input type="radio" name="perfil" value="professor">
+                            Professor
+                        </label>
+                        <label>
+                            <input type="radio" name="perfil" value="socio">
+                            Sócio
+                        </label>
+                    </fieldset>
+
+                    <button class="acesso-botao" type="submit">Continuar</button>
+                </form>
+            </section>
+
+            <!-- A segunda etapa começa oculta. O JavaScript mostra após Continuar. -->
+            <section id="etapa-login" aria-labelledby="titulo-login" hidden>
+                <p class="acesso-etapa">Etapa 2 de 2</p>
+                <h2 id="titulo-login">Entre no painel</h2>
+                <p id="perfil-escolhido" class="selo acesso-selo"></p>
+
+                <form id="form-login" class="acesso-formulario" autocomplete="off">
+                    <label class="acesso-campo">
+                        Login
+                        <input id="usuario" type="text" required spellcheck="false">
+                    </label>
+
+                    <label class="acesso-campo">
+                        Senha
+                        <input id="senha" type="password" required>
+                    </label>
+
+                    <p class="acesso-ajuda">
+                        Teste com login <strong>demo</strong> e senha <strong>movimente</strong>.
+                    </p>
+                    <p id="erro-login" class="acesso-erro" role="alert" hidden></p>
+
+                    <button class="acesso-botao" type="submit">Entrar</button>
+                    <button id="trocar-perfil" class="acesso-voltar" type="button">
+                        Trocar perfil
+                    </button>
+                </form>
+            </section>
+
+            <noscript>
+                <p>Ative o JavaScript para testar o acesso de demonstração.</p>
+            </noscript>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1366 768"
+     preserveAspectRatio="none">
+
+    <!-- Base azul na parte de baixo da tela. -->
+    <path fill="#073644"
+          d="M0 394 C160 366 193 512 305 560 C441 617 600 534 717 620 C794 677 866 743 1120 768 H0 Z"/>
+
+    <!-- Onda verde que nasce na esquerda e desce até o rodapé. -->
+    <path fill="#00857f"
+          d="M0 154 C85 142 177 150 240 171 C319 195 299 291 334 358 C387 462 467 501 569 498 C660 496 723 476 760 538 C800 608 833 672 945 694 C1038 712 1092 721 1145 768 H831 C770 756 747 720 716 684 C641 595 570 611 482 620 C349 631 277 581 212 506 C136 418 66 390 0 402 Z"/>
+
+    <!-- Camada turquesa, pintada por cima da onda verde. -->
+    <path fill="#24b8ad"
+          d="M0 200 C114 222 197 309 296 398 C398 490 466 534 581 510 C680 490 727 488 765 554 C809 630 840 680 948 700 C1027 713 1088 727 1145 768 H1017 C972 737 912 741 858 720 C787 693 759 657 729 616 C679 546 623 554 541 569 C419 591 351 582 266 507 C171 424 110 328 0 281 Z"/>
+
+    <!-- Ponta menta que passa na frente do cartão. -->
+    <path fill="#a8e0d4"
+          d="M303 479 C398 509 467 511 558 487 C668 457 746 443 772 526 C792 597 827 647 889 675 C970 710 1077 670 1145 768 H1110 C1054 719 970 736 898 720 C803 698 771 648 729 592 C676 518 625 513 551 529 C433 553 367 538 303 479 Z"/>
+
+    <!-- Traço fino que acompanha a curva na esquerda. -->
+    <!-- Linha clara: continua pela onda até sair pela borda inferior. -->
+    <!-- Linha clara: repete a curva da escura, deslocada para baixo. -->
+    <path fill="none"
+        stroke="#24b8ad"
+        stroke-opacity="1"
+        stroke-width="3"
+        transform="translate(0 20)"
+        d="M0 380
+            C145 356 191 453 298 520
+            S463 565 562 546
+            S680 531 734 596
+            S817 689 922 707
+            S1045 730 1090 780"/>
+
+    <!-- Linha mais escura: acompanha a faixa turquesa, acima da primeira. -->
+    <path fill="none"
+        stroke="#00857f"
+        stroke-opacity="1"
+        stroke-width="3"
+        d="M0 380
+            C145 356 191 453 298 520
+            S463 565 562 546
+            S680 531 734 596
+            S817 689 922 707
+            S1045 730 1090 780"/>
+</svg>
